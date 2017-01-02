@@ -1,0 +1,23 @@
+{
+  "name": "vulcanjs",
+  "description": "The webapp solution for NodeJS.",
+  "main": "server.js",
+  "authors": [
+    "Gerhard Richard Edens"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Webapp",
+    "solution",
+    "NodeJS"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ]
+}
