@@ -1,6 +1,6 @@
 {
   "name": "vulcanjs",
-  "description": "The webapp solution for NodeJS.",
+  "description": "It's simply the most logical choice for creating a NodeJS apps.",
   "main": "server.js",
   "authors": [
     "Gerhard Richard Edens"
