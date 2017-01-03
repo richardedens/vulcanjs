@@ -1,7 +1,7 @@
 {
   "name": "vulcanjs",
   "version": "1.0.0",
-  "description": "The webapp solution for NodeJS.",
+  "description": "It's simply the most logical choice for creating NodeJS apps.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
