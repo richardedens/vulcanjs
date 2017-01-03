@@ -10,7 +10,7 @@ module.exports = {
 
         // Create Hmac HEX and get 16 characters of it.
         iv = crypto.createHmac('sha256', utils.env('APP_KEY', 'still a secret'))
-            .update(utils.env('APP_HMAC', 'VdBYmVJTGlGeFJLODkxZGFULzU1dllITmhEa2g3U1g'))
+            .update(utils.env('ENCRYPTION_HMAC', 'VdBYmVJTGlGeFJLODkxZGFULzU1dllITmhEa2g3U1g'))
             .digest('hex')
             .substring(1,17);
 
@@ -28,7 +28,7 @@ module.exports = {
         back = base64str.substr(pos, base64str.length);
 
         // Melt it all together as a fake base64 string.
-        complete = (front + 'AAdFfUiFR' + iv + 'CLOkdERGWws' + back);
+        complete = (front + utils.env('ENCRYPTION_PRE','AAdFfUiFR') + iv + utils.env('ENCRYPTION_POST','CLOkdERGWws') + back);
 
         // Return a proper base64 string.
         return (new Buffer(complete).toString('base64'));
@@ -44,8 +44,8 @@ module.exports = {
 
         // Decode and get the parts.
         step0 = Buffer.from(encryptedMessage, 'base64').toString("utf8");
-        step1 = step0.replace('AAdFfUiFR','::');
-        step2 = step1.replace('CLOkdERGWws','::');
+        step1 = step0.replace(utils.env('ENCRYPTION_PRE','AAdFfUiFR'), utils.env('ENCRYPTION_DELIMITER','::'));
+        step2 = step1.replace(utils.env('ENCRYPTION_POST','CLOkdERGWws'), utils.env('ENCRYPTION_DELIMITER','::'));
         parts = step2.split('::');
 
         // Get the to be decoded base64 string
